@@ -50,6 +50,8 @@ public class TestCompleter implements ReadlineCompleter {
 	return "Tux";
     } else if (s == 1 && t.equals(""))
 	return "Tux";
+    else if (s == 2 && t.equals(""))
+	return "Resize";
     return null;
   }
 }

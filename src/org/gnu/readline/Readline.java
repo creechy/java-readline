@@ -1516,6 +1516,12 @@ public class Readline {
     else
       return null;
   }
+    
+  /////////////////////////////////////////////////////////////////////////////
+
+  public static void updateWindowSize() {
+      updateWindowSizeImpl();
+  }
 
   /////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////
@@ -1736,4 +1742,15 @@ public class Readline {
 
   private native static String getVarStringImpl(int number)
                               throws UnsupportedEncodingException;
+
+  /////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Native implementation of updateWindowSize()
+
+     @see org.gnu.readline.Readline#updateWindowSize()
+  */
+    
+  private native static void updateWindowSizeImpl();
+
 }

@@ -895,6 +895,14 @@ JNIEXPORT jstring JNICALL
 }
 
 /* -------------------------------------------------------------------------- */
+/* Updates what readline knows is the (terminal) window size                  */
+/* -------------------------------------------------------------------------- */
+
+JNIEXPORT void JNICALL Java_org_gnu_readline_Readline_updateWindowSizeImpl(JNIEnv *env, jclass class) {
+  rl_resize_terminal();
+}
+
+/* -------------------------------------------------------------------------- */
 /* Convert utf8-string to ucs1-string                   .                     */
 /* -------------------------------------------------------------------------- */
 

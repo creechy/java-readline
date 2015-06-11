@@ -130,8 +130,14 @@ public class ReadlineTest {
 	line = Readline.readline("linux> ");
 	if (line == null)
 	  System.out.println("no input");
-	else
+	else {
 	  System.out.println("line = >" + line + "<");
+	  if (line.equals("Resize")) {
+	      System.out.println("(updating window size)");
+	      Readline.updateWindowSize();
+	      System.out.println();
+	  }
+	}
       } catch (UnsupportedEncodingException enc) {
 	System.err.println("caught UnsupportedEncodingException");
 	break;
