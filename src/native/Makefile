@@ -41,9 +41,10 @@ LIB_PRE := lib
 LIB_EXT := so
 CFLAGS   = -fpic -DPOSIX
 LD_FLAGS = -shared
+LOCALSW ?= /usr/local
 
-INCLUDES          = -I $(JAVAINCLUDE) -I $(JAVANATINC)
-LIBPATH           = -L/usr/lib/termcap 
+INCLUDES          = -I $(LOCALSW)/include -I $(JAVAINCLUDE) -I $(JAVANATINC)
+LIBPATH           = -L $(LOCALSW)/lib -L/usr/lib/termcap 
 
 JavaReadline_LIBS = -lreadline -ltermcap -lhistory
 JavaEditline_LIBS = -ledit -ltermcap
@@ -90,9 +91,10 @@ LIB_PRE := lib
 LIB_EXT := jnilib
 CFLAGS   = -fPIC -DPOSIX
 LD_FLAGS = -dynamiclib -framework JavaVM
+LOCALSW ?= /sw
 
-INCLUDES          = -I/sw/include -I $(JAVAINCLUDE) -I $(JAVANATINC)
-LIBPATH           = -L/usr/lib -L/sw/lib
+INCLUDES          = -I$(LOCALSW)/include -I $(JAVAINCLUDE) -I $(JAVANATINC)
+LIBPATH           = -L$(LOCALSW)/lib -L/usr/lib
 
 JavaReadline_LIBS = -lreadline -ltermcap -lhistory
 JavaEditline_LIBS = -ledit -ltermcap

@@ -56,7 +56,7 @@ JAVALIBDIR= $(PREFIX)/share/java
 # Note that both CYGWIN and MSWIN use the cygwin-environment,
 # but the latter uses a native MS-compiler.
 
-OS_FLAVOR = LINUX
+OS_FLAVOR ?= LINUX
 #OS_FLAVOR = CYGWIN
 #OS_FLAVOR = MSWIN
 #OS_FLAVOR = MAC
@@ -93,6 +93,7 @@ endif
 
 # MAC
 ifeq (MAC,$(OS_FLAVOR))
+JAVA_HOME ?= `/usr/libexec/java_home`
 JAVAINCLUDE = /System/Library/Frameworks/JavaVM.framework/Headers
 JAVANATINC  =
 endif
