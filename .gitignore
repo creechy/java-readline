@@ -1,0 +1,3 @@
+build/
+src/native/org_gnu_readline_Readline.h
+src/native/org_gnu_readline_Readline.o

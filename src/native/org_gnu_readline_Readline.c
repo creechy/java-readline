@@ -666,7 +666,7 @@ const char *java_completer(char *text, int state) {
   jtext = (*jniEnv)->NewStringUTF(jniEnv,text);
 
   if (jniMethodId == 0) {
-    return;
+    return ((const char *)NULL);
   }
 
   completion = (*jniEnv)->CallObjectMethod(jniEnv, jniObject,
@@ -841,7 +841,7 @@ JNIEXPORT jstring JNICALL
       newExcCls = (*env)->FindClass(env,"java/lang/OutOfMemoryError");
       if (newExcCls != NULL)
         (*env)->ThrowNew(env,newExcCls,"");
-      return;    
+      return NULL;    
     }
   } else
     oldValue = NULL;
@@ -856,7 +856,7 @@ JNIEXPORT jstring JNICALL
     newExcCls = (*env)->FindClass(env,"java/io/UnsupportedEncodingException");
     if (newExcCls != NULL)
       (*env)->ThrowNew(env,newExcCls,"");
-    return;
+    return NULL;
   }
   if (is_copy == JNI_TRUE)
     (*env)->ReleaseStringUTFChars(env,jvalue,newValue);
